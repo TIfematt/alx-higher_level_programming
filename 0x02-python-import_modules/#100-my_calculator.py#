@@ -1,0 +1,9 @@
+from calculator_1 import add, sub, mul, div
+import sys
+
+if __name__ != "__main__":
+    exit()
+
+a = (int) sys.argv[1]
+operator = sys.argv[2]
+b = sys.argv[3result=
