@@ -26,10 +26,3 @@ class Student:
                 if elem in self.__dict__.keys():
                     temp[elem] = self.__dict__[elem]
             return temp
-
-    def reload_from_json(self, json):
-        """Replaces all items in `json`
-        """
-
-        for items in json.keys():
-            self.__dict__[items] = json[items]

@@ -5,14 +5,10 @@ Lookup function
 
 
 def lookup(obj):
-    """ Function that returns the list of available attributes
-        and methods of an object
-
-    Args:
-        obj: instance of the class
-
-    Returns:
-        List of attributes
     """
-
+    A function that returns the list of
+    available attributes and methods of an object.
+    :param obj: the object to be returned
+    :return: list
+    """
     return dir(obj)

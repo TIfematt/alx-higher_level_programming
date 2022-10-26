@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-""" Module that executes a function that appends a line """
+"""append string after
+"""
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """ Function that appends a new line when a string is found
-
-    Args:
-        filename: filename
-        search_string: string to search
-        new_string: string to append
-
+    """Insert new_string after search_string into filename
     """
 
-    res_line = []
-    with open(filename, 'r', encoding="utf-8") as f:
-        for line in f:
-            res_line += [line]
-            if line.find(search_string) != -1:
-                res_line += [new_string]
+    with open(filename, mode="r+", encoding="utf-8") as readFile:
+        temp = readFile.readlines()
 
-    with open(filename, 'w', encoding="utf-8") as f:
-        f.write("".join(res_line))
+    count = 0
+    with open(filename, mode="w", encoding="utf-8") as writeFile:
+        for lines in temp:
+            count += 1
+            if search_string in lines:
+                temp.insert(count, new_string)
+        for lines in temp:
+            writeFile.write(lines)

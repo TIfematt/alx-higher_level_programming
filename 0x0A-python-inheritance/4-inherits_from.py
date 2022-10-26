@@ -1,15 +1,17 @@
 #!/usr/bin/python3
+"""
+check for inheritance
+"""
+
+
 def inherits_from(obj, a_class):
-    """ Function that returns True/False if obj is an instance of a_class
+    """function that returns True
+    if the object is an instance of a class
+    that inherited (directly or indirectly)
+    from the specified class ; otherwise False.
 
-    Args:
-        obj: object
-        a_class: class type
-
-    Returns:
-        True if obj is an instance of a_class
-        False, otherwise
+    :param obj: class to be compared
+    :param a_class: class to compare with
+    :return: True
     """
-    if type(obj) is a_class:
-        return False
-    return isinstance(obj, a_class)
+    return issubclass(type(obj), a_class) and type(obj) != a_class
