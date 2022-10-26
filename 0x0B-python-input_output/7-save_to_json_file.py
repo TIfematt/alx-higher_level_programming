@@ -1,23 +1,21 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tru Jun 3 15:13:37 2020
-
-@author: Robinson Montes
+""" Module that writes an Object to a text file using
+a JSON representation
 """
 import json
 
 
 def save_to_json_file(my_obj, filename):
-    """
-    Save object to a file
+    """ Function that writes an object to a text file
+    by a JSON representation
 
-    Arguments:
-        my_obj (obj): The inputed object to convert in json format
-        filename (str): The name of the output file
+    Args:
+        my_obj: object
+        filename: textfile name
 
-    Return:
-        A file with a text in jason format
+    Raises:
+        Exception: when the object can't be encoded
+
     """
-    with open(filename, 'w', encoding='utf-8') as file:
-        return file.write(json.dumps(my_obj))
+    with open(filename, 'w', encoding="utf-8") as f:
+        json.dump(my_obj, f)

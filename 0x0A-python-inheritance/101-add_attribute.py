@@ -1,22 +1,17 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri May 29 15:13:37 2020
-
-@author: Robinson Montes
-"""
-
-
 def add_attribute(obj, name, value):
-    """
-    Add attribute into the class if it's possible
+    """ Function that adds a new attribute to an object
 
-    Arguments:
-        obj (object): The object to set as attribute
-        name (str): Name for the new attribute
-        value (int): Value to new attribute
+    Args:
+        obj: object
+        name: attribute name
+        value: attribute value
+
+    Raises:
+        TypeError: when the attribute can't be added
+
     """
-    if hasattr(obj, '__dict__'):
-        setattr(obj, name, value)
-    else:
+
+    if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
+    setattr(obj, name, value)

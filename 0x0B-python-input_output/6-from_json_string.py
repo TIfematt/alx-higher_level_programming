@@ -1,21 +1,18 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tru Jun 3 15:13:37 2020
-
-@author: Robinson Montes
+""" Module that contains a function that returns an object by
+a JSON representation
 """
 import json
 
 
 def from_json_string(my_str):
-    """
-    Convert a json string to a python object
+    """ Function that returns an object by a JSON representation
 
-    Arguments:
-        my_obj (str): The inputed object to convert in json format
+    Args:
+        my_str: JSON representation
 
-    Return:
-        A Python object from json
+    Raises:
+        Exception: when the string can't be decoded
+
     """
     return json.loads(my_str)

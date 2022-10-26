@@ -1,22 +1,19 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tru Jun 3 15:13:37 2020
-
-@author: Robinson Montes
+""" Module that contains a function that appends to a text file
 """
 
 
 def append_write(filename="", text=""):
-    """
-    Appends inputed text into a utf-8 encoded text file
+    """ Function that appends to a text file
 
-    Arguments:
-        filename (str): The name of the file to open
-        text (str): The text to append
+    Args:
+        filename: filename
+        text: text to write
 
-    Return:
-        A file with appened text
+    Raises
+        Exception: when the file can be opened
+
     """
-    with open(filename, 'a', encoding='utf-8') as file:
-        return file.write(text)
+
+    with open(filename, 'a', encoding="utf-8") as f:
+        return f.write(text)

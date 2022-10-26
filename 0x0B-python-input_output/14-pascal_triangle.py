@@ -1,31 +1,30 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tru Jun 3 15:13:37 2020
-
-@author: Robinson Montes
-"""
-
-
 def pascal_triangle(n):
+    """ Function that returns the pascal triangle
+
+    Args:
+        n: number of lines
+
+    Returns:
+        matrix: a matrix with the pascal triangle
+
     """
-    Creates a pascal triangle
 
-    Attributes:
-        n (int): The n exponent for triangle
+    matrix = []
+    prev = []
 
-    Return:
-        A matrix with values for the triangle
-    """
-    pascal = []
-    triangle = []
+    for i in range(n):
+        res_list = []
+        p1 = -1
+        p2 = 0
+        for j in range(len(prev) + 1):
+            if p1 == -1 or p2 == len(prev):
+                res_list += [1]
+            else:
+                res_list += [prev[p1] + prev[p2]]
+            p1 += 1
+            p2 += 1
+        matrix.append(res_list)
+        prev = res_list[:]
 
-    for i in range(int(n)):
-        new = pascal[:]
-        new.append(1)
-        pos = len(pascal)
-        for i in range(1, pos):
-            new[i] = pascal[i - 1] + pascal[i]
-        pascal = new[:]
-        triangle.append(pascal)
-    return triangle
+    return matrix
