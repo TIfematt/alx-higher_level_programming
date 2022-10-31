@@ -68,3 +68,54 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must must be >=0")
         self.__y = value
+
+    def area(self):
+        """The area of the rectangle
+            Returns: Area of the rectangle
+
+            >>> Rectangle (2, 3)
+            >>> 6
+        """
+        return self.width * self.height
+
+    def display(self):
+        """ Prints in stdout the rectangle
+            instance with the character #
+        """
+        rectangle = self.y * "\n"
+
+        for i in range(self.height):
+            rectangle += (" " * self.x)
+            rectangle += ("#" * self.width) + "\n"
+
+        print(rectangle, end='')
+
+    def __str__(self):
+        """ str special method """
+        str_rectangle = "[Rectangle] "
+        str_id = "({}) ".format(self.id)
+        str_xy = "{}/{} - ".format(self.x, self.y)
+        str_wh = "{}/{}".format(self.width, self.height)
+
+        return str_rectangle + str_id + str_xy + str_wh
+
+    def update(self, *args, **kwargs):
+        """ Update method """
+        if args is not None and len(args) is not 0:
+            list_atr = ['id', 'width', 'height', 'x', 'y']
+            for i in range(len(args)):
+                setattr(self, list_atr[i], args[i])
+
+            else:
+                for key, value in kwargs.items():
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ A method that returns a dictionary with properties """
+        list_atr = ['id', 'width', 'height', 'x', 'y']
+        dict_res = {}
+
+        for key in list_atr:
+            dict_res[key] = getattr(self, key)
+
+        return dict_res
